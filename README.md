@@ -1,93 +1,130 @@
-# AI_Powered_Search_Engine
+🧠 AI-Powered Laptop Recommendation Chatbot
+This end-to-end system scrapes laptop data from Flipkart, enriches it with detailed specifications, and powers a smart chatbot that understands user intent to recommend the best laptops for different needs — powered by LangChain, FAISS, and Streamlit.
 
-This project is an end-to-end pipeline that scrapes laptop listings from Flipkart, cleans and enriches the data, and uses LangChain, FAISS, and Streamlit to build a chatbot that provides laptop recommendations based on user queries.
-----------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Features
------------------------------------------------------------------------------------------------
-✅ Web scraping of laptop data from Flipkart using Selenium + BeautifulSoup
-✅ Enriches each product with battery life, weight, webcam, and display size
-✅ Cleans and structures the data with pandas
-✅ Chatbot interface powered by Streamlit + LangChain
-✅ Intelligent filtering by price, specifications, and user intent (e.g., gaming, office use)
-✅ Context-aware question answering and follow-up support
-✅ Product comparison and specification summary
----------------------------------------------------------------------------------------------
+🚀 Features
+✅ Web scraping of laptop listings using Selenium + BeautifulSoup
 
-Project Structure
-----------------------------------------------------------------------------------------------
+✅ Enrichment with key specs: battery life, weight, display size, and webcam
+
+✅ Data cleaning & structuring using pandas
+
+✅ Streamlit chatbot UI for user interaction
+
+✅ Smart filtering by price, usage type (e.g., gaming, office), and technical specs
+
+✅ LangChain + FAISS RAG pipeline for semantic search
+
+✅ Context-aware Q&A and follow-up query handling
+
+✅ Laptop comparison and detailed specification summaries
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 Project Structure
 .
-├── flipkart_scraper.py          # Step 1: Web scraping script
-├── flipkart_laptop_final.csv    # Scraped raw data
-├── data_cleaning.py             # Step 2: Data cleaning & enrichment
-├── flipkart_laptop_cleaned.csv  # Final structured dataset
-├── app.py                       # Streamlit chatbot app
-├── filter.py                    # Custom filtering logic
-├── README.md                    # Project documentation
----------------------------------------------------------------------------------------------
+├── flipkart_scraper.py           # Step 1: Web scraping script
 
-1️⃣ Web Scraping from Flipkart
-=============================================================================================
-We use headless Chrome with Selenium to navigate through search result pages and extract product details and extra specs (battery, webcam, etc.) from individual product pages.
+├── flipkart_laptop_final.csv     # Scraped raw data
 
-📁 Output: flipkart_laptop_final.csv
+├── data_cleaning.py              # Step 2: Data cleaning & enrichment
 
-# Setup headless Chrome and loop through 30 pages of laptop results
-# Extract details + visit product pages for specs like battery and webcam
-# Save all collected data to CSV
+├── flipkart_laptop_cleaned.csv   # Final cleaned dataset
 
-=============================================================================================
+├── app.py                        # Streamlit chatbot interface
 
-2️⃣ Data Cleaning
-============================================================================================
-After scraping, we clean and structure the data using pandas.
+├── filter.py                     # Filtering logic based on user query
 
-Adds columns like Brand, Processor, RAM, Storage, etc.
-Creates combined text and all_text fields for embedding.
-📁 Output: flipkart_laptop_cleaned.csv
+├── README.md                     # Project documentation
 
-============================================================================================
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-3️⃣ Chatbot with LangChain + FAISS + Streamlit
-============================================================================================
-⚙️ How it works
-Upload CSV: The cleaned laptop data is uploaded.
-Filter Laptops: Apply filters by price, specs, and purpose (e.g., gaming, office).
-RAG Pipeline: User question is passed through a LangChain Retrieval-Augmented Generation chain using FAISS and Ollama.
-Recommendations: Laptops are recommended with price, specs, and URLs.
-Follow-Up Queries: Users can ask to compare laptops or get full specifications.
+🕸️ 1. Web Scraping from Flipkart
 
-🧠 Supported Queries
-"Show me laptops under 60k for gaming"
-"Which laptop is best for students?"
-"Compare laptop 1 and 2"
-"What are the specifications of laptop 3?"
-=============================================================================================
+   Uses headless Chrome + Selenium to extract data from ~30 pages.
 
-🛠 Tech Stack
----------------------------------------------------------------------------------------------
-Python
-Selenium + BeautifulSoup – Scraping
-pandas – Data Cleaning
-Streamlit – Web App
-LangChain + FAISS – Retrieval-Augmented Generation (RAG)
-Ollama – Local LLM
-HuggingFace Embeddings – Vector representations
-=============================================================================================
+   Visits each product page to extract extra specs like battery life, webcam, display size, etc.
 
-📥 How to Run
----------------------------------------------------------------------------------------------
-1.Clone the repo
+   Saves the scraped raw data to flipkart_laptop_final.csv.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧹 2. Data Cleaning & Enrichment
+
+  Uses pandas to clean and enrich the data.
+
+  Adds structured columns: Brand, Processor, RAM, Storage, Display Size, etc.
+
+  Creates embeddings-ready fields: combined_text, all_text.
+
+  Output saved to: flipkart_laptop_cleaned.csv.
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  🤖 3. Streamlit Chatbot with LangChain + FAISS
+  
+   How It Works:
+   
+   Upload the cleaned CSV (flipkart_laptop_cleaned.csv)
+
+   User query is parsed to detect budget, intent, and spec requirements
+
+   Vector search using FAISS with HuggingFace embeddings
+
+   Answer generated by local LLM via Ollama in a RAG setup
+
+   Provides laptop recommendations with links and follow-up support
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+   Examples of Supported Queries:
+
+  "Show me laptops under ₹60,000 for gaming"
+
+  "Which laptop is best for students?"
+
+  "Compare laptop 2 and 4"
+
+  "What are the full specs of laptop 3?"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  🧰 Tech Stack
+
+  Category	                                Tools & Libraries
+  
+  Language	                                    Python
+  
+  Scraping	                             Selenium, BeautifulSoup
+  
+  Data Cleaning	                                pandas
+  
+  Frontend	                                  Streamlit
+  
+  AI/NLP	                              LangChain, FAISS, HuggingFace Embeddings
+
+  Local LLM	                                     Ollama
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Getting Started
+
+1.Clone the repository
+
 git clone https://github.com/your-username/flipkart-laptop-chatbot.git
+
 cd flipkart-laptop-chatbot
 
 2.Install dependencies
+
 pip install -r requirements.txt
 
 3.Run the Streamlit app
+
 streamlit run app.py
 
-4.Upload your CSV
-Use flipkart_laptop_cleaned.csv
+4.Upload dataset
 
+Use flipkart_laptop_cleaned.csv when prompted.
 
