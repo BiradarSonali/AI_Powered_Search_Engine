@@ -87,19 +87,23 @@ How it works:
  1. Clone the repo
 
      git clone https://github.com/your-username/flipkart-laptop-chatbot.git
+    
      cd flipkart-laptop-chatbot
+
     
 
- 2. Install dependencies
+ 3. Install dependencies
 
      pip install -r requirements.txt
      
 
- 3. Run the app
+
+ 4. Run the app
 
      streamlit run app.py
-     
+    
 
- 4. Upload your CSV (use flipkart_laptop_cleaned.csv)
+
+ 6. Upload your CSV (use flipkart_laptop_cleaned.csv)
 
 
