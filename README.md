@@ -19,11 +19,17 @@ An end-to-end GenAI pipeline that scrapes laptop listings from Flipkart, cleans 
 
 .
 ├── flipkart_scraper.py # Step 1: Scrape Flipkart laptop listings
+
 ├── flipkart_laptop_final.csv # Raw scraped dataset
+
 ├── data_cleaning.py # Step 2: Clean + enrich data
+
 ├── flipkart_laptop_cleaned.csv # Final processed dataset
+
 ├── filter.py # Custom filtering logic for chatbot
+
 ├── app.py # Streamlit chatbot app
+
 ├── README.md # Project documentation
 
 
@@ -78,19 +84,22 @@ How it works:
 
 ## ▶️ How to Run
 
-1. Clone the repo
+ 1. Clone the repo
 
-   git clone https://github.com/your-username/flipkart-laptop-chatbot.git
-   cd flipkart-laptop-chatbot
+     git clone https://github.com/your-username/flipkart-laptop-chatbot.git
+     cd flipkart-laptop-chatbot
+    
 
-2.Install dependencies
+ 2. Install dependencies
 
-   pip install -r requirements.txt
+     pip install -r requirements.txt
+     
 
-3.Run the app
+ 3. Run the app
 
-   streamlit run app.py
+     streamlit run app.py
+     
 
-4. Upload your CSV (use flipkart_laptop_cleaned.csv)
+ 4. Upload your CSV (use flipkart_laptop_cleaned.csv)
 
 
