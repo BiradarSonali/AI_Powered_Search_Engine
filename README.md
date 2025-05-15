@@ -8,7 +8,7 @@ An end-to-end GenAI pipeline that scrapes laptop listings from Flipkart, cleans 
 
 - 🔍 Web scraping of laptop data from Flipkart (Selenium + BeautifulSoup)
 - 🧹 Cleans and enriches product specs (battery, weight, display, webcam, etc.)
-- 🧠 LangChain-based chatbot powered by local LLM (Ollama)
+- 🧠 LangChain-based chatbot powered by local LLM (Groq)
 - 🔎 Intelligent filtering by price, specs, and use-case (e.g. gaming, office)
 - 🤖 Context-aware question answering and follow-ups
 - 📊 Product comparison and full specification summary
@@ -20,17 +20,17 @@ An end-to-end GenAI pipeline that scrapes laptop listings from Flipkart, cleans 
 .
 ├── flipkart_scraper.py # Step 1: Scrape Flipkart laptop listings
 
-├── flipkart_laptop_final.csv # Raw scraped dataset
+├── flipkart_laptop_final.csv # scraped dataset
 
-├── data_cleaning.py # Step 2: Clean + enrich data
+├── cleaning_data.py # Step 2: Clean data
 
 ├── flipkart_laptop_cleaned.csv # Final processed dataset
 
-├── filter.py # Custom filtering logic for chatbot
+├── filteration.py # Custom filtering logic for chatbot
 
-├── app.py # Streamlit chatbot app
+├── laptop_recommender.py # Streamlit chatbot app
 
-├── README.md # Project documentation
+├── README.md # Documentation
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ An end-to-end GenAI pipeline that scrapes laptop listings from Flipkart, cleans 
 ## 1️⃣ Web Scraping from Flipkart
 
 We use headless Chrome (Selenium) + BeautifulSoup to:
-- Loop through 30+ pages of Flipkart laptop results
+- Loop through 25+ pages of Flipkart laptop results
 - Visit individual product pages for extra specs (battery life, webcam, etc.)
 - Output data to `flipkart_laptop_final.csv`
 
@@ -76,7 +76,7 @@ How it works:
 - 🌐 Selenium + BeautifulSoup – Web scraping
 - 📊 pandas – Data cleaning
 - 🧠 LangChain + FAISS – RAG + vector search
-- 🗣️ Ollama – Local LLM for query answering
+- 🗣️ Groq – Local LLM for query answering
 - 🔤 HuggingFace – Text embeddings
 - 📺 Streamlit – Chatbot UI
 
@@ -100,7 +100,7 @@ How it works:
 
  4. Run the app
 
-     streamlit run app.py
+     streamlit run laptop_recommender.py
     
 
 
