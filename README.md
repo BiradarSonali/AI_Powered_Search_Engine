@@ -22,7 +22,7 @@ An end-to-end GenAI pipeline that scrapes laptop listings from Flipkart, cleans 
 
 ├── flipkart_laptop_final.csv # scraped dataset
 
-├── cleaning_data.py # Step 2: Clean data
+├── clean_data.py # Step 2: Clean data
 
 ├── flipkart_laptop_cleaned.csv # Final processed dataset
 
